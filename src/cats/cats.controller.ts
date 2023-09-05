@@ -2,6 +2,7 @@ import { Controller, Get, Post, Put, Delete, ParseIntPipe, Res, HttpStatus, Para
 import { CatsService } from './cats.service';
 import { Cat } from './interface/cat.interface';
 import { Response } from 'express';
+import { CreateCatDto } from './dto/create-cat.dto';
 
 @Controller('cats')
 export class CatsController {
@@ -35,9 +36,9 @@ export class CatsController {
     }
 
     @Post()
-    create(@Body() cat: Cat, @Res() res: Response) {
-        this.catsService.create(cat);
-        res.status(HttpStatus.CREATED).json(cat);
+    create(@Body() createCatDto: CreateCatDto, @Res() res: Response) {
+        this.catsService.create(createCatDto);
+        res.status(HttpStatus.CREATED).json(createCatDto);
     }
     
     @Put(':id')
