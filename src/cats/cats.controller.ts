@@ -23,7 +23,7 @@ export class CatsController {
         }
     }
 
-    @Delete(':id')
+        @Delete(':id')
     remove(@Param('id', ParseIntPipe) id: number, @Res() res: Response) {
         const indexGatoEncontrado = this.catsService.findIndexById(id);
         if (indexGatoEncontrado >= 0) {
@@ -51,3 +51,5 @@ export class CatsController {
         }
     }
 }
+
+//certo
